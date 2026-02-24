@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krish Karthik | Cloud Engineer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #020617;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #020617;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite alternate;
+            will-change: transform;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: #0ea5e9;
+            top: -10%;
+            left: -10%;
+            animation-duration: 18s;
+        }
+
+        .orb-2 {
+            width: 600px;
+            height: 600px;
+            background: #6366f1;
+            bottom: -20%;
+            right: -10%;
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: #38bdf8;
+            top: 40%;
+            left: 50%;
+            animation-duration: 22s;
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 50px) scale(1.1); }
+            100% { transform: translate(-50px, 100px) scale(0.9); }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 900px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: 0.4s;
+        }
+
+        .glass:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .section {
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            background: #38bdf8;
+            color: black;
+            transform: scale(1.05);
+            font-weight: 500;
+        }
+
+        #feedback {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #38bdf8;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #020617;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: white;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav>
+        <h2 class="logo">KRISH KARTHIK</h2>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#feedback">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content glass">
+            <img src="krish.jpeg" class="profile-img" alt="Krish Karthik">
+            <h1>Aspiring Cloud & DevOps Engineer</h1>
+            <p style="color: #94a3b8; margin-top: 10px;">BCA Cloud Computing Student</p>
+        </div>
+    </section>
+
+    <section id="about" class="section glass">
+        <h2>About Me</h2>
+        <p style="color: #cbd5e1; line-height: 1.6; margin-top: 15px;">
+            Hi! I am a BCA Cloud Computing student focused on becoming a Cloud and DevOps Engineer.
+            I am actively building skills in cloud platforms and automation
+            to design secure and scalable solutions.
+        </p>
+    </section>
+
+    <section id="skills" class="section glass">
+        <h2>Technical Skills</h2>
+        <div style="margin-top: 20px;">
+            <canvas id="skillsChart"></canvas>
+        </div>
+    </section>
+
+    <section id="journey" class="section glass">
+        <h2>Professional Journey</h2>
+        <div class="grid">
+            <div class="card">Started Learning Programming</div>
+            <div class="card">Built First Website</div>
+            <div class="card">Completed Certifications</div>
+            <div class="card">Working on Real Projects</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section glass">
+        <h2>Projects</h2>
+        <div class="card" style="margin-top: 20px;">
+            <strong>Modern Responsive Portfolio</strong><br>
+            Using HTML, CSS, JavaScript & Supabase Backend
+        </div>
+    </section>
+
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea rows="5" id="message" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div id="status" style="margin-top: 15px;"></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const supabaseUrl = "https://rgddvfzzmgkyejvwqrin.supabase.co";
+            const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtbWx2eW5veGZ4ZWZ2bXpocmJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA4NDgsImV4cCI6MjA4NzUwNjg0OH0.Xt_BmsOw0oJKBg64weyjB2NjHTqpapEeYxXRSpetBrg";
+            const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+            const form = document.getElementById("feedbackForm");
+            const status = document.getElementById("status");
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const button = form.querySelector("button");
+                button.disabled = true;
+                button.textContent = "Submitting...";
+                status.textContent = "Submitting...";
+                status.style.color = "#fff";
+
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                if (!name || !email || !message) {
+                    status.textContent = "Please fill all fields.";
+                    status.style.color = "#ff4444";
+                    button.disabled = false;
+                    button.textContent = "Submit Feedback";
+                    return;
+                }
+
+                const { error } = await supabaseClient
+                    .from("feedback")
+                    .insert([{ name, email, message }]);
+
+                if (error) {
+                    status.textContent = error.message;
+                    status.style.color = "#ff4444";
+                } else {
+                    status.textContent = "Feedback submitted successfully!";
+                    status.style.color = "#00ffd5";
+                    form.reset();
+                    setTimeout(() => status.textContent = "", 4000);
+                }
+
+                button.disabled = false;
+                button.textContent = "Submit Feedback";
+            });
+
+            new Chart(document.getElementById("skillsChart"), {
+                type: "bar",
+                data: {
+                    labels: ["HTML", "CSS", "JavaScript", "Cloud", "DevOps"],
+                    datasets: [{
+                        data: [85, 80, 75, 70, 65],
+                        backgroundColor: '#38bdf8',
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: { 
+                        y: { 
+                            beginAtZero: true, 
+                            max: 100,
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            ticks: { color: '#94a3b8' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>
